@@ -18,7 +18,8 @@
 		"typecheck": "tsc --noEmit",
 		"circular": "npx dpdm --exit-code circular:1 --no-tree --no-warning --progress false --transform \"./src/index.ts\"",
 		"deadcode": "knip --exclude binaries,dependencies,unlisted",
-		"check": "run-p typecheck lint format circular deadcode"
+		"check": "run-p typecheck lint format circular deadcode",
+		"build": "bun build --compile --outfile=index ./src/index.ts"
 	},
 	"dependencies": {
 		"@elysiajs/cors": "^1.4.0",

@@ -8,11 +8,11 @@ export const OpenAPI = {
 		getSchema().then(({ paths }) => {
 			const reference: typeof paths = Object.create(null);
 
-			for (const path of Object.keys(paths)) {
+			for (const [path, value] of Object.entries(paths)) {
 				const key = prefix + path;
-				reference[key] = paths[path];
+				reference[key] = value;
 
-				for (const method of Object.keys(paths[path])) {
+				for (const method of Object.keys(value)) {
 					const operation = (reference[key] as any)[method];
 
 					operation.tags = ["Better Auth"];
