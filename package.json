@@ -15,11 +15,12 @@
 		"format": "prettier --check . --log-level warn",
 		"lint": "eslint . --quiet",
 		"lint:fix": "eslint . --fix",
-		"typecheck": "tsc --noEmit",
+		"typecheck": "tsc -b",
 		"circular": "npx dpdm --exit-code circular:1 --no-tree --no-warning --progress false --transform \"./src/index.ts\"",
 		"deadcode": "knip --exclude binaries,dependencies,unlisted",
-		"check": "run-p typecheck lint format circular deadcode",
-		"build": "bun build --compile --outfile=index ./src/index.ts"
+		"check": "run-p typecheck lint format circular deadcode build",
+		"build": "bun build --compile --outfile=index ./src/index.ts",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@elysiajs/cors": "^1.4.0",
@@ -48,6 +49,7 @@
 		"eslint-plugin-promise": "^7.2.1",
 		"eslint-plugin-security": "^3.0.1",
 		"eslint-plugin-unicorn": "^62.0.0",
+		"husky": "^9.1.7",
 		"jiti": "^2.6.1",
 		"knip": "^5.73.4",
 		"npm-run-all": "^4.1.5",
