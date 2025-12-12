@@ -44,3 +44,5 @@ package-lock.json
 .vscode
 .env
 drizzle
+
+.tsbuildinfo
