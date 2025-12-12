@@ -9,7 +9,9 @@ export const betterAuth = new Elysia({ name: "better-auth" }).mount("/auth", aut
 				headers,
 			});
 
-			if (!session) return status(401);
+			if (!session) {
+				return status(401, "Unauthorized");
+			}
 
 			return {
 				session: session.session,

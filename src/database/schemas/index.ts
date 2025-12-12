@@ -1,0 +1,1 @@
+export { entityTable } from "./entity";
